@@ -103,7 +103,7 @@ void print_list(Lista* l)
 
   while(current!=NULL)
   {
-    printf("%d", current-> lettera);
+    Serial.printf("%d", current-> lettera);
     current = current->next; 
   }
 }
