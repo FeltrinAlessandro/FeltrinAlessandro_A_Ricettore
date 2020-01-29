@@ -20,6 +20,7 @@ void setup() {
   // put your setup code here, to run once:
   pinSensore = A5;
   pinMode(pinSensore,INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -34,8 +35,6 @@ void loop() {
     }
     tempoFinale = millis();
     tempo = tempoFinale - tempoIniziale;
-
-    morse = ""; 
 
     if(tempo>=400 && tempo<=600)
     {
@@ -53,6 +52,7 @@ void loop() {
       {
         print_list(listaChar);
       }
+      morse = ""; 
     }
   }
 }
@@ -66,12 +66,13 @@ char traduciCodice(String s)
 int trovaIndice(String s)
 {
   int contatore = 0;
-  while(contatore < sizeof(codiceMorse))
+  while(contatore < 27)
   {
     if(codiceMorse[contatore]==s)
     {
       return contatore;
     }
+    contatore++;
   }
 }
 
@@ -100,10 +101,13 @@ Lista* aggiungiCarattere(Lista* l, char s)
 void print_list(Lista* l)
 {
   Lista* current = l;
+  char c;
 
   while(current!=NULL)
   {
-    Serial.printf("%d", current-> lettera);
+    c = current->lettera;
+    Serial.print(c);
     current = current->next; 
   }
+  listaChar = NULL;
 }
