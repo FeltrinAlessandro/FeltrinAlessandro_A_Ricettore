@@ -57,13 +57,13 @@ void loop() {
   }
 }
 
-char traduciCodice(String s)
+char traduciCodice(String s)//metodo che trasforma un segnale morse in char
 {
   int indice = trovaIndice(s);
   return caratteri[indice];
 }
 
-int trovaIndice(String s)
+int trovaIndice(String s)//metodo che trova l'indice della string s nella Lista codiceMorse
 {
   int contatore = 0;
   while(contatore < 27)
@@ -76,7 +76,7 @@ int trovaIndice(String s)
   }
 }
 
-Lista* creaNodo(char s)
+Lista* creaNodo(char s)//metodo che crea un nodo di tipo Lista
 {
   Lista* n = (Lista*) malloc(sizeof(Lista));
   n-> lettera = s;
@@ -84,7 +84,7 @@ Lista* creaNodo(char s)
   return n;
 }
 
-Lista* aggiungiCarattere(Lista* l, char s)
+Lista* aggiungiCarattere(Lista* l, char s)//metodo che aggiunge un carattere alla Lista l 
 {
   if(l==NULL)
   {
@@ -98,7 +98,7 @@ Lista* aggiungiCarattere(Lista* l, char s)
   }
 }
 
-void print_list(Lista* l)
+void print_list(Lista* l)//metodo che fa il print di tutta la Lista l
 {
   Lista* current = l;
   char c;
